@@ -1,16 +1,19 @@
 using System;
-using System.Configuration;
 using LearnPageRazor.Models;
+using LearnPageRazor.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
+
 var services = builder.Services;
 var configuration = builder.Configuration;
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 services.AddDbContext<MyBlogContext>(options =>
@@ -24,11 +27,13 @@ services.AddDbContext<MyBlogContext>(options =>
 //     .AddDefaultTokenProviders();
 
 services.AddDefaultIdentity<User>()
-     .AddEntityFrameworkStores<MyBlogContext>()
-     .AddDefaultTokenProviders();
+    .AddEntityFrameworkStores<MyBlogContext>()
+    .AddDefaultTokenProviders();
+
 
 // Truy cập IdentityOptions
-services.Configure<IdentityOptions> (options => {
+services.Configure<IdentityOptions>(options =>
+{
     // Thiết lập về Password
     options.Password.RequireDigit = false; // Không bắt phải có số
     options.Password.RequireLowercase = false; // Không bắt phải có chữ thường
@@ -38,7 +43,7 @@ services.Configure<IdentityOptions> (options => {
     options.Password.RequiredUniqueChars = 1; // Số ký tự riêng biệt
 
     // Cấu hình Lockout - khóa user
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes (5); // Khóa 5 phút
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // Khóa 5 phút
     options.Lockout.MaxFailedAccessAttempts = 5; // Thất bại 5 lầ thì khóa
     options.Lockout.AllowedForNewUsers = true;
 
@@ -50,8 +55,12 @@ services.Configure<IdentityOptions> (options => {
     // Cấu hình đăng nhập.
     options.SignIn.RequireConfirmedEmail = true;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
     options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
-
 });
+
+services.AddOptions();
+var mailSetting = configuration.GetSection("MailSettings");
+services.Configure<MailSettings>(mailSetting);
+services.AddSingleton<IEmailSender, SendMailService>();
 
 var app = builder.Build();
 
