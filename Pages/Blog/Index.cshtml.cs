@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using LearnPageRazor.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LearnPageRazor.Pages_Blog
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
-        private readonly LearnPageRazor.Models.MyBlogContext _context;
+        private readonly MyBlogContext _context;
 
         public const int ITEM_PER_PAGE = 10;
         
