@@ -2,6 +2,7 @@ using System;
 using LearnPageRazor.Models;
 using LearnPageRazor.Services;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 // Add services to the container.
+services.AddOptions();
 builder.Services.AddRazorPages();
 services.AddDbContext<MyBlogContext>(options =>
 {
@@ -65,7 +67,15 @@ services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
 });
 
-services.AddOptions();
+services.AddAuthentication()
+    .AddGoogle(options =>
+    {
+        var client = configuration.GetSection("Authentication").GetSection("Google");
+        options.ClientId = client["ClientId"];
+        options.ClientSecret = client["ClientSecret"];
+        options.CallbackPath = new PathString("/google");
+    });
+
 var mailSetting = configuration.GetSection("MailSettings");
 services.Configure<MailSettings>(mailSetting);
 services.AddSingleton<IEmailSender, SendMailService>();
