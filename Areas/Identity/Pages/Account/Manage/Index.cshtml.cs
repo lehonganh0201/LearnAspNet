@@ -3,16 +3,19 @@
 #nullable disable
 
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using LearnPageRazor.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LearnPageRazor.Areas.Identity.Pages.Account.Manage
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly UserManager<User> _userManager;
@@ -59,6 +62,13 @@ namespace LearnPageRazor.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            
+            [StringLength(400)]
+            [DisplayName("Địa chỉ")]
+            public string HomeAddress { get; set; }
+            
+            [DisplayName("Ngày sinh")]
+            public DateTime? DateOfBirth { get; set; }
         }
 
         private async Task LoadAsync(User user)
@@ -70,7 +80,9 @@ namespace LearnPageRazor.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                HomeAddress = user.HomeAddress,
+                DateOfBirth = user.DateOfBirth
             };
         }
 
@@ -100,17 +112,23 @@ namespace LearnPageRazor.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
-                    return RedirectToPage();
-                }
-            }
+            // var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            // if (Input.PhoneNumber != phoneNumber)
+            // {
+            //     var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+            //     if (!setPhoneResult.Succeeded)
+            //     {
+            //         StatusMessage = "Unexpected error when trying to set phone number.";
+            //         return RedirectToPage();
+            //     }
+            // }
 
+            user.HomeAddress = Input.HomeAddress;
+            user.DateOfBirth = Input.DateOfBirth;
+            user.PhoneNumber = Input.PhoneNumber;
+
+            await _userManager.UpdateAsync(user);
+            
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();

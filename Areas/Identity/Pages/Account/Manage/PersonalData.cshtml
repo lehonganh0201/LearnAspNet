@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "/user/me"
 @model PersonalDataModel
 @{
     ViewData["Title"] = "Personal Data";
@@ -9,15 +9,15 @@
 
 <div class="row">
     <div class="col-md-6">
-        <p>Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
+        <p>Bạn có thể tải dữ liệu cá nhân về hoặc xóa hoàn toàn tài khoản khỏi website</p>
         <p>
-            <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
+            <strong>Sau khi xóa tài khoản thì không thể phục hồi.</strong>
         </p>
         <form id="download-data" asp-page="DownloadPersonalData" method="post">
-            <button class="btn btn-primary" type="submit">Download</button>
+            <button class="btn btn-primary" type="submit">Tải xuống</button>
         </form>
         <p>
-            <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger">Delete</a>
+            <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger">Xóa tài khoản</a>
         </p>
     </div>
 </div>
