@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnPageRazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+397941bd8dabb8ff0f91f9f005c12f95d22025f0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82e135a7d0b47369f946a5eefc306547bd2a69ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnPageRazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnPageRazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

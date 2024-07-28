@@ -24,13 +24,15 @@ services.AddDbContext<MyBlogContext>(options =>
     options.UseSqlServer(connection);
 });
 
-// services.AddIdentity<User, IdentityRole>()
-//     .AddEntityFrameworkStores<MyBlogContext>()
-//     .AddDefaultTokenProviders();
+services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
 
-services.AddDefaultIdentity<User>()
+services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<MyBlogContext>()
     .AddDefaultTokenProviders();
+
+// services.AddDefaultIdentity<User>()
+//     .AddEntityFrameworkStores<MyBlogContext>()
+//     .AddDefaultTokenProviders();
 
 
 // Truy cập IdentityOptions

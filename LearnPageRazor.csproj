@@ -36,4 +36,8 @@
       <PackageReference Include="MimeKit" Version="4.7.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\Admin\Pages\Role\_StatusMessage.cshtml" />
+    </ItemGroup>
+
 </Project>
