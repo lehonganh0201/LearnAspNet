@@ -1,0 +1,47 @@
+﻿@page "/manage/users"
+@using LearnPageRazor.Helpers
+@model LearnPageRazor.Areas.Admin.Pages.User.IndexModel
+@{
+    ViewData["Title"] = "Danh sách người dùng";
+}
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="Model.StatusMessage"/>
+<p>Tổng số thành viên: @Model.TotalUsers</p>
+
+<table class="table">
+    <tr>
+        <th>Tên người dùng</th>
+        <th>Vai trò</th>
+        <th>Tác vụ</th>
+    </tr>
+    @foreach (var user in Model.Users)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>
+                @if (string.IsNullOrEmpty(@user.RoleName))
+                {
+                    <a class="text-dark" asp-page="AddRole" asp-route-userId="@user.Id">Cập nhật vai trò</a>
+                }
+                else
+                {
+                    <a class="text-dark" asp-page="AddRole" asp-route-userId="@user.Id">@user.RoleName</a>
+                }
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" asp-page="SetPassword" asp-route-userId="@user.Id">Cập nhật mật khẩu</a>
+            </td>
+        </tr>
+    }
+</table>
+
+@{
+    var pagingModel = new PagingModel()
+    {
+        CurrentPage = Model.CurrentPage,
+        CountPages = Model.CountPages,
+        generateUrl = (int? page) => Url.Page("./Index", new {page = page})
+    };
+}
+<partial name="_Paging" model="pagingModel"/>

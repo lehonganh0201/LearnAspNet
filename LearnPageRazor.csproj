@@ -37,7 +37,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Areas\Admin\Pages\Role\_StatusMessage.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Pages\User\SetPassword.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Pages\User\_StatusMessage.cshtml" />
     </ItemGroup>
-
 </Project>

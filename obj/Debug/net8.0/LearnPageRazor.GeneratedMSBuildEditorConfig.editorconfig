@@ -26,9 +26,15 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\workspace\C#\LearnPageRazor
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/Role/_StatusMessage.cshtml]
+[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/User/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxTZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/User/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
@@ -48,12 +54,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/Role/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/Role/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/Role/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/User/AddRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxBZGRSb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/User/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/User/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/workspace/C\#/LearnPageRazor/Areas/Identity/Pages/Account/AccessDenied.cshtml]
@@ -258,6 +284,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/workspace/C\#/LearnPageRazor/Pages/Shared/_Paging.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9QYWdpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/workspace/C\#/LearnPageRazor/Pages/Shared/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/workspace/C\#/LearnPageRazor/Pages/Shared/_ValidationScriptsPartial.cshtml]

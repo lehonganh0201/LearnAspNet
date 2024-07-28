@@ -1,0 +1,42 @@
+﻿@page "/manage/add-role/{userId}"
+@model LearnPageRazor.Areas.Admin.Pages.User.AddRole
+@{
+    ViewData["Title"] = "Thêm vai trò cho người dùng";
+}
+
+<h3>@ViewData["Title"] @Model.User.UserName</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<div class="row">
+    <div class="col-md-6">
+        <form id="set-password-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                @Html.ListBoxFor(m=>m.Roles, @Model.RoleNames, new
+                {
+                    id = "id-select-roles",
+                    @class = "w-100"
+                } )
+                <label asp-for="Roles" class="form-label"></label>
+                <span asp-validation-for="Roles" class="text-danger"></span>
+            </div>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Cập nhật</button><br/>
+            <a class="btn btn-dark" asp-page="Index">Danh sách thành viên</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/multiple-select/multiple-select.min.js"></script>
+    <link rel="stylesheet" href="~/lib/multiple-select/multiple-select.min.css"/>
+    
+    <script>
+        $("#id-select-roles").multipleSelect({
+            selectAll: false,
+            keepOpen: false,
+            isOpen: false
+        });
+    </script>
+
+    <partial name="_ValidationScriptsPartial"/>
+}

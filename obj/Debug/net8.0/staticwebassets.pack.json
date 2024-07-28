@@ -245,6 +245,34 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "E:\\workspace\\C#\\LearnPageRazor\\wwwroot\\lib\\multiple-select\\multiple-select.css",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.css"
+    },
+    {
+      "Id": "E:\\workspace\\C#\\LearnPageRazor\\wwwroot\\lib\\multiple-select\\multiple-select.js",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.js"
+    },
+    {
+      "Id": "E:\\workspace\\C#\\LearnPageRazor\\wwwroot\\lib\\multiple-select\\multiple-select.min.css",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.min.css"
+    },
+    {
+      "Id": "E:\\workspace\\C#\\LearnPageRazor\\wwwroot\\lib\\multiple-select\\multiple-select.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.min.css.map"
+    },
+    {
+      "Id": "E:\\workspace\\C#\\LearnPageRazor\\wwwroot\\lib\\multiple-select\\multiple-select.min.js",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.min.js"
+    },
+    {
+      "Id": "E:\\workspace\\C#\\LearnPageRazor\\wwwroot\\lib\\multiple-select\\multiple-select.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.min.js.map"
+    },
+    {
+      "Id": "E:\\workspace\\C#\\LearnPageRazor\\wwwroot\\lib\\multiple-select\\multiple-select.png",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.png"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LearnPageRazor.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -21,7 +21,10 @@ builder.Services.AddRazorPages();
 services.AddDbContext<MyBlogContext>(options =>
 {
     string connection = configuration.GetConnectionString("AppDbContext");
-    options.UseSqlServer(connection);
+    options.UseSqlServer(connection, sqlServerOptions =>
+    {
+        sqlServerOptions.UseCompatibilityLevel(60);
+    });
 });
 
 services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
