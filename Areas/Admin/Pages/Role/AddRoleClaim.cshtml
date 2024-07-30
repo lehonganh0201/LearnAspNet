@@ -1,0 +1,36 @@
+﻿@page "/claim/add/{roleid}"
+@model LearnPageRazor.Areas.Admin.Pages.Role.AddRoleClaim
+@{
+    ViewData["Title"] = "Thêm đặc tính";
+}
+<h2>@ViewData["Title"] cho @Model.Role.Name</h2>
+<partial name="_StatusMessage" model="Model.StatusMessage"/>
+
+<hr/>
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.ClaimType" class="control-label"></label>
+                <input asp-for="Input.ClaimType" class="form-control"/>
+                <span asp-validation-for="Input.ClaimType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.ClaimValue" class="control-label"></label>
+                <input asp-for="Input.ClaimValue" class="form-control"/>
+                <span asp-validation-for="Input.ClaimValue" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <input type="submit" value="Tạo mới" class="btn btn-primary"/>
+                <a asp-page="Update" class="btn btn-dark" asp-route-roleid="@Model.Role.Id">Chỉnh sửa vai trò</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

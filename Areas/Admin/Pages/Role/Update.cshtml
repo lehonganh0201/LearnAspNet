@@ -23,6 +23,21 @@
                 <a asp-page="Index" class="btn btn-dark">Quay lại</a>
             </div>
         </form>
+        <hr/>
+        <p>Các đặc tính của vai trò: 
+            <a asp-page="AddRoleClaim" asp-route-roleid="@Model.Role.Id">
+                + Thêm đặc tính
+            </a>
+        </p>
+        @if (Model.Claims.Count > 0)
+        {
+            <ul>
+                @foreach (var claim in Model.Claims)
+                {
+                    <li><a asp-page="UpdateClaim" asp-route-claimId="@claim.Id">@claim.ClaimType : @claim.ClaimValue</a></li>
+                }
+            </ul>
+        }
     </div>
 </div>
 

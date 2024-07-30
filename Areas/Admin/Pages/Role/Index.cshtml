@@ -20,7 +20,16 @@
     @foreach (var role in Model.Roles)
     {
         <tr>
-            <td>@role.Name</td>
+            <td>
+            <p>@role.Name</p>
+            @foreach (var item in Model.Roles)
+            {
+                if (item.Claims.Length > 0)
+                {
+                    <small>@string.Join("\n", role.Claims)</small>
+                }
+            }
+            </td>
             <td>
                 <a class="btn btn-warning btn-sm" asp-page="Update" asp-route-roleid="@role.Id">Cập nhật</a>
                 <a class="btn btn-danger btn-sm" asp-page="Delete" asp-route-roleid="@role.Id">Xóa</a>

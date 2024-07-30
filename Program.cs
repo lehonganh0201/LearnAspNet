@@ -81,6 +81,15 @@ services.AddAuthentication()
         options.CallbackPath = new PathString("/google");
     });
 
+services.AddAuthorization(options =>
+{
+    options.AddPolicy("AllowEditRole", builder =>
+    {
+        builder.RequireAuthenticatedUser();
+        builder.RequireClaim("CanEdit", "User");
+    });
+});
+
 var mailSetting = configuration.GetSection("MailSettings");
 services.Configure<MailSettings>(mailSetting);
 services.AddSingleton<IEmailSender, SendMailService>();

@@ -1,15 +1,19 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using LearnPageRazor.Areas.Admin.Role;
 using LearnPageRazor.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace LearnPageRazor.Areas.Admin.Pages.Role
 {
+    [Authorize(Policy = "AllowEditRole")]
     public class Update : RolePageModel
     {
         public Update(RoleManager<IdentityRole> roleManager, MyBlogContext myBlogContext) : base(roleManager, myBlogContext)
@@ -28,6 +32,8 @@ namespace LearnPageRazor.Areas.Admin.Pages.Role
         public InputModel Input { get; set; }
         
         public IdentityRole Role { get; set; }
+        
+        public List<IdentityRoleClaim<string>> Claims { get; set; } 
 
 
         public async Task<IActionResult> OnGet(string roleId)
@@ -43,8 +49,11 @@ namespace LearnPageRazor.Areas.Admin.Pages.Role
                 {
                     Name = Role.Name
                 };
+                Claims = await _context.RoleClaims.Where(r => r.RoleId == Role.Id).ToListAsync();
+
                 return Page();
             }
+
 
             return NotFound("Không tìm thấy role");
         }

@@ -1,0 +1,36 @@
+﻿@page "/admin/user-claim/{userId}"
+@model LearnPageRazor.Areas.Admin.Pages.User.UpdateUserClaim
+@{
+    ViewData["Title"] = "Đặc tính của người dùng";
+}
+<h1>@ViewData["Title"] @Model.User.UserName</h1>
+<partial name="_StatusMessage" model="@Model.StatusMessage"/>
+
+<hr/>
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.ClaimType" class="control-label"></label>
+                <input asp-for="Input.ClaimType" class="form-control"/>
+                <span asp-validation-for="Input.ClaimType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.ClaimValue" class="control-label"></label>
+                <input asp-for="Input.ClaimValue" class="form-control"/>
+                <span asp-validation-for="Input.ClaimValue" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <input type="submit" value="Tạo mới" class="btn btn-primary"/>
+                <a asp-page="AddRole" class="btn btn-dark" asp-route-roleid="@Model.User.Id">Chỉnh sửa người dùng</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

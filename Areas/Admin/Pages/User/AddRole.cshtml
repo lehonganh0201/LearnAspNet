@@ -5,31 +5,56 @@
 }
 
 <h3>@ViewData["Title"] @Model.User.UserName</h3>
-<partial name="_StatusMessage" for="StatusMessage" />
+<partial name="_StatusMessage" for="StatusMessage"/>
 
 <div class="row">
     <div class="col-md-6">
         <form id="set-password-form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
-                @Html.ListBoxFor(m=>m.Roles, @Model.RoleNames, new
+                @Html.ListBoxFor(m => m.Roles, @Model.RoleNames, new
                 {
                     id = "id-select-roles",
                     @class = "w-100"
-                } )
+                })
                 <label asp-for="Roles" class="form-label"></label>
                 <span asp-validation-for="Roles" class="text-danger"></span>
             </div>
             <button type="submit" class="w-100 btn btn-lg btn-primary">Cập nhật</button><br/>
             <a class="btn btn-dark" asp-page="Index">Danh sách thành viên</a>
         </form>
+        <hr/>
+        <p>Các đặc tính của người dùng có được từ vai trò: </p>
+        @if (Model.RoleClaims.Count > 0)
+        {
+            <ul>
+                @foreach (var claim in Model.RoleClaims)
+                {
+                    <li>@claim.ClaimType : @claim.ClaimValue</li>
+                }
+            </ul>
+        }
+
+        <hr/>
+        <p>Các đặc tính của người riêng: 
+            <a asp-page="UpdateUserClaim" asp-route-userId="@Model.User.Id" asp-page-handler="AddClaim">+ Thêm đặc tính riêng</a>
+        </p>
+        @if (Model.UserClaims.Count > 0)
+        {
+            <ul>
+                @foreach (var claim in Model.UserClaims)
+                {
+                    <a asp-page="UpdateUserClaim" asp-route-claimId="@claim.Id" asp-page-handler="EditClaim">@claim.ClaimType : @claim.ClaimValue</a>
+                }
+            </ul>
+        }
     </div>
 </div>
 
 @section Scripts {
     <script src="~/lib/multiple-select/multiple-select.min.js"></script>
     <link rel="stylesheet" href="~/lib/multiple-select/multiple-select.min.css"/>
-    
+
     <script>
         $("#id-select-roles").multipleSelect({
             selectAll: false,

@@ -38,6 +38,10 @@ build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxfU3Rh
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/Role/AddRoleClaim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxBZGRSb2xlQ2xhaW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -72,6 +76,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/User/UpdateUserClaim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxVcGRhdGVVc2VyQ2xhaW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/workspace/C\#/LearnPageRazor/Areas/Admin/Pages/User/_ViewImports.cshtml]
